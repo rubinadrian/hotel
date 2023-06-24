@@ -1,0 +1,134 @@
+.background_modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cont_modal {
+    width: 80%;
+    max-width: 800px;
+    overflow: auto;
+    background-color: white;
+    animation: fadeIn 0.3s;
+    max-height: 100%;
+}
+
+.close_modal {
+    width: 30px;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.head_modal {
+    position: relative;
+    display: flex;
+    white-space: nowrap;
+    overflow: auto;
+}
+
+.central_head_modal {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.nav_modal {
+    display: flex;
+    flex-direction: row;
+    background-color: #f7f7f7;
+}
+
+.nav_modal button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 14px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    white-space: nowrap;
+    border-right: 1px solid #676767;
+    background-color: #d3d3d3;
+    background-image: linear-gradient(to bottom, #d3d3d3, #1d566e);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.nav_modal button.active {
+    background-color: #206e4e;
+    background-image: linear-gradient(to bottom, #206e4e, #4e9e2d) !important;
+}
+
+.body_modal {
+    min-height: 150px;
+}
+
+.titulo_modal {
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+    font-size: 26px;
+    line-height: 50px;  
+}
+
+.cont_reservas {
+    min-height: 200px;
+    overflow: auto;
+    max-height: 300px;
+}
+
+.close_modal:hover {
+    background-color: #a93545;
+    color: white;
+}
+
+.cont_numero_habitacion {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.numero_habitacion {
+    font-size: 60px;
+    color: white;
+    z-index: 1;
+}
+
+.icon_numero_habitacion {
+    font-size: 80px;
+    position: absolute;
+    color: rgba(0,0,0,0.3);
+}
+
+.activo {
+    color: #3c88a6 !important;
+}
+
+form {
+    padding: 20px;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: scale(0.5);}
+    100% { opacity: 1; transform: scale(1);}
+  }
+
+td {
+    cursor: pointer;
+}

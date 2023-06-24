@@ -1,23 +1,3 @@
-.paleta {
-    color: #485755;
-    color: #4d4143;
-    background-color: #a93545;
-    color: #e89a80;
-    color: #f7e6be;
-}
-
-.ocupada {
-    background-color: #a93545;
-}
-
-.libre {
-    background-color: #485755;
-}
-
-.mantenimiento {
-    background-color: #e89a80;
-}
-
 
 .cont_habitaciones {
   --auto-grid-min-size: 150px;

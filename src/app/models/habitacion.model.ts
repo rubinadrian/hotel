@@ -12,7 +12,9 @@ export class Habitacion {
         public camas_simples: number,
         public camas_matrimoniales: number,
         public estado = EstadoHabitacion.Libre,
-        public ejecutiva = false
+        public ejecutiva = false,
+        public nombre: string,
+        public importe: number
       ) { 
         this.capacidad = this.camas_simples + this.camas_matrimoniales*2;
       }

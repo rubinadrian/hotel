@@ -4,6 +4,47 @@
     box-sizing: border-box;
 }
 
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.paleta {
+    color: #485755;
+    color: #4d4143;
+    background-color: #a93545;
+    color: #e89a80;
+    color: #f7e6be;
+}
+
+.unselectable {
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Estándar */
+  }
+  
+
+.cont_flex_horizontal {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin:10px 0px;
+}
+
+.ocupada {
+    background-color: #a93545;
+}
+
+.libre {
+    background-color: #485755;
+}
+
+.mantenimiento {
+    background-color: #e89a80;
+}
+
 body {
     background-color: #f7e6be;
     padding: 0;
@@ -41,3 +82,158 @@ select {
     margin-right: 10px;
   }
   
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  
+  table th,
+  table td {
+    padding: 12px;
+    text-align: left;
+    vertical-align: middle;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  thead th {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  
+  table th {
+    font-weight: bold;
+    background-color: #343434;
+    color: #fff;
+    font-size: 14px;
+  }
+  
+  table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  form  label {
+    display: block;
+    padding: 10px;
+    font-size: 14px;
+    min-width: 100px;
+  }
+
+  input,
+  textarea,
+  select {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  input:focus,
+  textarea:focus,
+  select:focus {
+    outline: none;
+    border-color: #87ceeb;
+  }
+  
+  button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 14px;
+    border: none;
+    background-color: #3c88a6;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    white-space: nowrap;
+  }
+  
+  button:hover {
+    background-color: #4e99b6;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .checkbox-container {
+    position: relative;
+    cursor: pointer;
+    font-size: 16px;
+    user-select: none;
+    display: block;
+  }
+  
+  .checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .checkmark {
+    position: absolute;
+    top: -10px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 3px;
+    z-index: 1;
+  }
+  
+  .checkbox-container:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  .checkbox-container input:checked ~ .checkmark {
+    background-color: #3c88a6;
+  }
+  
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  .checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  .checkbox-container .checkmark:after {
+    left: 7px;
+    top: 3px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+  }
+
+
+  /* Estilos generales */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Barra de desplazamiento */
+::-webkit-scrollbar-track {
+  background-color: rgba(0,0,0,0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #3c88a6;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0,0,0,0.3);
+}
+
+

@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Habitacion,EstadoHabitacion } from './habitacion.model';
+import { Habitacion,EstadoHabitacion } from '../models/habitacion.model';
+import { environment } from '../enviroments';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HabitacionService {
-  url = 'http://localhost:3000/api/habitaciones';
+  url = environment.url + 'habitaciones';
 
   constructor(private http: HttpClient) { }
 
@@ -15,8 +16,12 @@ export class HabitacionService {
     return this.http.get<Habitacion[]>(this.url);
   }
 
-  save() {
-    return this.http.post(this.url, JSON.parse('{"id":1,"camas_simples":1,"camas_matrimoniales":0,"estado":0,"ejecutiva":0}'));
+  save(hab:Habitacion) {
+    return this.http.post(this.url, hab);
+  }
+
+  update(hab:Habitacion) {
+    return this.http.patch(this.url, hab);
   }
 
   delete() {

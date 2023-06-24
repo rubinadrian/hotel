@@ -1,6 +1,6 @@
 
 <div class="cont_habitaciones">
-    <div class="card_habitacion" *ngFor="let h of habitaciones | filter:filterTipo:filterEstado" (click)="saveHabitacion()">
+    <div class="card_habitacion" *ngFor="let h of habitaciones | filter:filterTipo:filterEstado" (click)="showModal(h)">
         <span class="num_habitacion"  [ngClass]="{'libre':h.estado==0,'ocupada':h.estado==1,'mantenimiento':h.estado==2}">
             <fa-icon [icon]="faDoorOpen" class="icon_num_hab" *ngIf="h.estado === 0"></fa-icon>
             <fa-icon [icon]="faDoorClosed" class="icon_num_hab" *ngIf="h.estado === 1"></fa-icon>
@@ -9,6 +9,7 @@
             <fa-icon [icon]="faCertificate" class="icon_ejecutiva" *ngIf="h.ejecutiva"></fa-icon>
         </span>
         <div class="cont_caracteristicas">
+            <div class="caracteristica">{{h.nombre}}</div>
             <div class="caracteristica">
                 <div class="icon" title="CAPACIDAD">
                     <fa-icon [icon]="faUsers"></fa-icon>
@@ -23,8 +24,10 @@
                     {{h.camas_matrimoniales}}
                 </div>
             </div>
+            
         </div>
     </div>
 </div>
 
 
+<app-modal-home-habitacion *ngIf="showModalHabitacion" [habitacion]="habitacion_seleccionada"></app-modal-home-habitacion>

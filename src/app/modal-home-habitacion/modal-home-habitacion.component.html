@@ -1,0 +1,101 @@
+<div class="background_modal">
+    <div class="cont_modal">
+        <div class="head_modal">
+            <div class="cont_numero_habitacion"
+                [ngClass]="{'libre':habitacion.estado==0,'ocupada':habitacion.estado==1,'mantenimiento':habitacion.estado==2}">
+                <fa-icon [icon]="faKey" class="icon_numero_habitacion"></fa-icon>
+                <span class="numero_habitacion">{{habitacion.id}}</span>
+            </div>
+            <div class="central_head_modal">
+                <h1 class="titulo_modal">Hotel Maipu</h1>
+                <div class="nav_modal">
+                    <button [ngClass]="{'active': activeMenu === Menu.Reservas}" (click)="activeMenu=Menu.Reservas">Reservas</button>
+                    <button [ngClass]="{'active': activeMenu === Menu.Cobros}"  (click)="activeMenu=Menu.Cobros">Cobros</button>
+                    <button [ngClass]="{'active': activeMenu === Menu.Cancelaciones}"  (click)="activeMenu=Menu.Cancelaciones">Cancelaciones</button>
+                </div>
+            </div>
+            <div class="close_modal" (click)="closeModal()">x</div>
+        </div>
+        <div class="body_modal" *ngIf="activeMenu === Menu.Reservas">
+            <form (submit)="generarReservas()">
+                <div class="cont_flex_horizontal">
+
+                    <div class="form-group">
+                        <label>Huesped: </label>
+                        <input type="text" [(ngModel)]="huesped" name="huesped" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Importe: </label>
+                        <input type="text" [(ngModel)]="importe" name="importe" required>
+                    </div>
+                </div>
+                <div class="cont_flex_horizontal">
+                    <div class="form-group">
+                        <label>Desde: </label>
+                        <input type="date" [(ngModel)]="fechaDesde" name="fechadesde" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Hasta: </label>
+                        <input type="date" [(ngModel)]="fechaHasta" name="fechahasta" required>
+                    </div>
+                    <button type="submit">Generar reservas</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="body_modal" *ngIf="activeMenu === Menu.Cobros">
+            <form action="#">
+                <div class="cont_flex_horizontal">
+                    <div class="form-group">
+                        <label>Cuotas: </label>
+                        <input type="text" [readonly]="true" [value]="cantReservasSel()">
+                    </div>
+                    <div class="form-group">
+                        <label>Importe: </label>
+                        <input type="text" [readonly]="true" [value]="impReservasSel()">
+                        <button type="submit" style="margin-left: 20px;" (click)="pagarReservas()">Cobrar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="body_modal" *ngIf="activeMenu === Menu.Cancelaciones">
+            <form action="#">
+                <div class="cont_flex_horizontal">
+                    <button (click)="delReservas()">Cancelar Reservas</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="cont_reservas unselectable">
+            <table>
+                <thead>
+                    <tr>
+                        <th><fa-icon [icon]="faCheckDouble" (click)="selectAllPendientes(!selectedAll)"
+                                [ngClass]="{'activo':selectedAll}"></fa-icon></th>
+                        <th>Fecha</th>
+                        <th>Huesped</th>
+                        <th>Importe</th>
+                        <th>% Des.</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let reserva of reservasPendientes" (click)="selReserva(reserva)">
+                        <td>
+                            <span class="checkbox-container">
+                                <input type="checkbox" [(ngModel)]="reserva.selected">
+                                <span class="checkmark"></span>
+                            </span>
+                        </td>
+                        <td>{{reserva.fecha | date:'dd/MM/yyyy'}}</td>
+                        <td>{{reserva.huesped}}</td>
+                        <td>{{reserva.importe}}</td>
+                        <td>{{reserva.descuento}}</td>
+                        <td>{{reserva.estado}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
